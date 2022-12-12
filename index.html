@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/blood.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<img src="myBrain/img/6g-477e213eabe64b5d9226fbdf0f2f3a78.webp" alt="" style="width: 500px; object-fit: fill">
+
+### Lukas Zorn 3AKIFT
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Übersicht
+- 5G vs 6G <!-- .element: class="fragment" data-fragment-index="1" -->
+- Wer? <!-- .element: class="fragment" data-fragment-index="2" -->
+- Wie? <!-- .element: class="fragment" data-fragment-index="3" -->
+- Wann?<!-- .element: class="fragment" data-fragment-index="4" -->
+- Chancen & Möglichkeiten <!-- .element: class="fragment" data-fragment-index="5" -->
+</div></script></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## 5G vs 6G
+
+Wo liegt der Unterschied?
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Frequenz 
+
+5G <!-- .element: class="fragment" data-fragment-index="1" -->
+- 3,4 -3,8GHz <!-- .element: class="fragment" data-fragment-index="1" -->
+
+
+6G <!-- .element: class="fragment" data-fragment-index="2" -->
+- 100GHz - 10THz <!-- .element: class="fragment" data-fragment-index="2" -->
+</div>
+
+<aside class="notes"><p>- 
+    - werden versteigert = keine gegens. Störung 
+    - Nachteil : je höher Frequenz, umso geringer Reichweite 5G deshalb so schwer flächendeckend</p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Latenz 
+### 5G <!-- .element: class="fragment" data-fragment-index="1" -->
+- 1ms <!-- .element: class="fragment" data-fragment-index="1" -->
+
+
+### 6G <!-- .element: class="fragment" data-fragment-index="2" -->
+- 0,1ms <!-- .element: class="fragment" data-fragment-index="2" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Bandbreite
+
+5G  <!-- .element: class="fragment" data-fragment-index="1" -->
+- 2,5 Gbyte/s  <!-- .element: class="fragment" data-fragment-index="1" -->
+ 
+6G  <!-- .element: class="fragment" data-fragment-index="2" -->
+- 1 TByte/s  <!-- .element: class="fragment" data-fragment-index="2" -->
+</div>
+
+<aside class="notes"><p>1TB/s - laut China FunFakt: 73 Folgen von GoT in der Sekunde downgeloadet</p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<img src="myBrain/img/Pasted image 20221121195220.png" alt="" style="object-fit: scale-down">
+</div></script></section><section data-markdown><script type="text/template"></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Wer entwickelt es? 
+-  EUROPA 🇪🇺<!-- .element: class="fragment" data-fragment-index="1" -->
+- ASIEN 🌏<!-- .element: class="fragment" data-fragment-index="2" -->
+- USA 🇺🇸<!-- .element: class="fragment" data-fragment-index="3" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## USA 🇺🇸
+- Apple <!-- .element: class="fragment" data-fragment-index="1" -->
+- Google <!-- .element: class="fragment" data-fragment-index="2" -->
+- AT&T <!-- .element: class="fragment" data-fragment-index="3" -->
+- INTEL  <!-- .element: class="fragment" data-fragment-index="4" -->
+- Qualcom  <!-- .element: class="fragment" data-fragment-index="5" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## ASIEN 🌏
+- Huawai 🇨🇳<!-- .element: class="fragment" data-fragment-index="1" -->
+- Samsung 🇰🇷<!-- .element: class="fragment" data-fragment-index="2" -->
+- Sony 🇯🇵<!-- .element: class="fragment" data-fragment-index="3" -->
+</div>
+
+<aside class="notes"><p>erster Satellit -THz Tech testen</p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## EUROPA 🇪🇺
+- Nokia 🇸🇪<!-- .element: class="fragment" data-fragment-index="1" -->
+- Siemens 🇩🇪<!-- .element: class="fragment" data-fragment-index="2" -->
+- Ericsson  🇸🇪<!-- .element: class="fragment" data-fragment-index="3" -->
+</div>
+
+<aside class="notes"><p>🇸🇪 schweden
+    HEXA-X: 22 Corps unter Leitung von Nokia</p>
+</aside></script></section></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Wie?
+- Hardware Clientside<!-- .element: class="fragment" data-fragment-index="1" -->
+- Hardware Infrastruktur <!-- .element: class="fragment" data-fragment-index="2" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Wann?
+<img src="myBrain/img/Pasted image 20221121195112.png" alt="" style="object-fit: scale-down" class="fragment" data-fragment-index="1">
+</div></script></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Chancen & Möglichkeiten
+
+- Industrie 4.0 <!-- .element: class="fragment" data-fragment-index="1" -->
+- Medizin <!-- .element: class="fragment" data-fragment-index="2" -->
+- Autonomes Fahren <!-- .element: class="fragment" data-fragment-index="3" -->
+- Gaming <!-- .element: class="fragment" data-fragment-index="4" -->
+- Smart Citys <!-- .element: class="fragment" data-fragment-index="5" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Industrie 4.0
+
+<img src="myBrain/img/Pasted image 20221206172003.png" alt="" style="width: 700px; object-fit: fill" class="fragment" data-fragment-index="1">
+</div>
+
+<aside class="notes"><p>end 18JHD dampfkraft /webstuhl
+    end 19jhd massenproduktion / montagelinien
+    end 20jhd automatisierung /SPS PCs
+    heute IoT</p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Medizin
+- Echtzeit Bio-Monitoring <!-- .element: class="fragment" data-fragment-index="1" -->
+- OP über Distanz <!-- .element: class="fragment" data-fragment-index="2" -->
+<img src="Pasted image 20221206172251.png" alt="" style="object-fit: scale-down" class="fragment" data-fragment-index="1">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Autonomes Fahren
+- keine Onboard-Devices <!-- .element: class="fragment" data-fragment-index="1" -->
+- zentrale Rechnungszentren <!-- .element: class="fragment" data-fragment-index="2" -->
+
+<img src="Pasted image 20221206172613.png" alt="" style="object-fit: scale-down" class="fragment" data-fragment-index="1">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Gaming
+
+- VR - Virtual Reality <!-- .element: class="fragment" data-fragment-index="1" -->
+- AR - Augmented Reality <!-- .element: class="fragment" data-fragment-index="2" -->
+<img src="Pasted image 20221206173507.png" alt="" style="object-fit: scale-down" class="fragment" data-fragment-index="2">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Smart Citys
+<img src="Pasted image 20221206173255.png" alt="" style="object-fit: scale-down">
+</div></script></section></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Quellen:
+- https://www.bell-labs.com/research-innovation/what-is-6g/
+- https://www.computerbase.de/2020-07/samsung-6g-terabit-2028/
+- https://www.fts-hennig.de/ratgeber/6g-netz/
+- https://de.wikipedia.org/wiki/6G
+- https://de.wikipedia.org/wiki/5G
+- https://www.elektroniknet.de/kommunikation/mobilfunk/fuenf-merkmale-fuer-eine-kommende-disruption.185058.html
+- https://www.fraunhofer.de/de/forschung/fraunhofer-initiativen/fraunhofer-leitprojekte/6g-sentinel.html
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Vielen Dank!
+</div></script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+			]
+		},
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":true,"progress":true,"slideNumber":false,"transition":"slide","transitionSpeed":"default"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
